@@ -41,7 +41,7 @@ void Application::parseFile(std::string const& filePath)
 
 			iss3 >> name >> skillLevel;
 
-			contributor.skills.emplace_back(name, skillLevel);
+			contributor.skills.emplace(name, skillLevel);
 		}
 
 		contributors.push_back(contributor);
@@ -54,7 +54,7 @@ void Application::parseFile(std::string const& filePath)
 
 		Project project;
 		int numberOfSkills;
-		iss2 >> project.name >> project.daysToConplete >> project.scoreAwarded >> project.bestBeforeDay >> project.numberOfRoles;
+		iss2 >> project.name >> project.daysToComplete >> project.scoreAwarded >> project.bestBeforeDay >> project.numberOfRoles;
 
 		for (int j = 0; j < project.numberOfRoles; j++)
 		{
@@ -66,7 +66,7 @@ void Application::parseFile(std::string const& filePath)
 
 			iss3 >> name >> skillLevel;
 
-			project.requiredSkills.emplace_back(name, skillLevel);
+			project.requiredSkills.emplace(name, skillLevel);
 		}
 
 		projects.push_back(project);
