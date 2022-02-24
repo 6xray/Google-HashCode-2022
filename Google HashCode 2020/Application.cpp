@@ -47,14 +47,31 @@ void Application::parseFile(std::string const& filePath)
 		contributors.push_back(contributor);
 	}
 
-	for (auto& contributor : contributors)
+	for (int i = 0; i < projectCount; i++)
 	{
-		std::cout << "Name : " + contributor.name + "\n" + "Skills : \n";
+		std::getline(file, line);
+		std::istringstream iss2(line);
 
-		for (auto& skill : contributor.skills)
+		Project project;
+		int numberOfSkills;
+		iss2 >> project.name >> project.daysToConplete >> project.scoreAwarded >> project.bestBeforeDay >> project.numberOfRoles;
+
+		for (int j = 0; j < project.numberOfRoles; j++)
 		{
-			std::cout << "- " + skill.name + " | " << skill.level << '\n';
+			std::getline(file, line);
+			std::istringstream iss3(line);
+
+			std::string name;
+			int skillLevel;
+
+			iss3 >> name >> skillLevel;
+
+			project.requiredSkills.emplace_back(name, skillLevel);
 		}
+
+		projects.push_back(project);
 	}
+
+	std::cout << "Contributors : " << contributors.size() << ", projects : " << projects.size();
 }
 

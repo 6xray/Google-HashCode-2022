@@ -4,5 +4,5 @@ int main()
 {
 	Application app;
 
-	app.parseFile("../Data/a_an_example.in.txt");
+	app.parseFile("../Data/f_find_great_mentors.in.txt");
 }

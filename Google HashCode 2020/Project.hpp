@@ -5,10 +5,12 @@
 
 struct Project
 {
-	std::string name;
-	int daysToConplete;
-	int scoreAwarded;
-	int bestBeforeDay;
-	int numberOfRoles;
-	std::vector<Skill> requiredSkills;
+	std::string name{};
+	int daysToConplete = 0;
+	int scoreAwarded = 0;
+	int bestBeforeDay = 0;
+	int numberOfRoles = 0;
+	int startingDay = 0;
+	std::vector<Skill> requiredSkills{};
+	std::vector<Contributor> contributors{};
 };
